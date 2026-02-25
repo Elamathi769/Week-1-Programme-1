@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Attendance Management System - Campus Map</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .nav {
+            width: 20%;
+            background-color: #ecf0f1;
+            padding: 15px;
+        }
+
+        .nav a {
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+            text-decoration: none;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .nav a:hover {
+            background-color: #1f6391;
+        }
+
+        .main {
+            width: 80%;
+            padding: 15px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 2px solid black;
+            margin-top: 10px;
+        }
+
+        img {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Student Attendance Management System</h1>
+</header>
+
+<div class="container">
+
+    <!-- Navigation Panel -->
+    <div class="nav">
+        <h3>Navigation</h3>
+
+        <a hrefdoc="<h2>Total Attendance</h2><p>Total classes conducted: 120</p>" target="contentFrame">Total Attendance</a>
+
+        <a hrefdoc="<h2>Low Attendance List</h2><p>Students below 75% attendance.</p>" target="contentFrame">Low Attendance</a>
+
+        <a hrefdoc="<h2>Department Report</h2><p>Department-wise attendance summary.</p>" target="contentFrame">Department Report</a>
+    </div>
+
+    <!-- Main Section with Map -->
+    <div class="main">
+
+        <h2>REC Chennai Campus Map</h2>
+
+        <!-- Campus Map Image with Hotspots -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/REC_Chennai_Logo.jpg/600px-REC_Chennai_Logo.jpg"
+             width="600"
+             height="300"
+             usemap="#campusmap"
+             alt="REC Chennai Campus Map">
+
+        <map name="campusmap">
+            <!-- Hotspots -->
+            <area shape="rect" coords="50,50,200,150"
+                  hrefdoc="<h2>Main Academic Building</h2><p>Attendance Centre & Admin Block</p>"
+                  target="contentFrame">
+
+            <area shape="circle" coords="300,150,60"
+                  hrefdoc="<h2>Library Section</h2><p>Library & Study Area</p>"
+                  target="contentFrame">
+
+            <area shape="rect" coords="400,50,580,150"
+                  hrefdoc="<h2>Hostel Facilities</h2><p>Hostel Attendance Checkpoints</p>"
+                  target="contentFrame">
+        </map>
+
+        <!-- Frame to display content from links or hotspots -->
+        <iframe name="contentFrame"></iframe>
+
+    </div>
+
+</div>
+
+</body>
+</html>
