@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Attendance Management System</title>
+
+<style>
+
+/* College Campus Background */
+
+body{
+ font-family: Arial;
+ margin:0;
+ background-image:url("https://images.unsplash.com/photo-1562774053-701939374585");
+ background-size:cover;
+ background-position:center;
+}
+
+/* Overlay */
+
+.overlay{
+ background:rgba(0,0,0,0.6);
+ min-height:100vh;
+ text-align:center;
+ padding-top:40px;
+}
+
+/* Headings */
+
+h1{
+ color:white;
+}
+
+h2{
+ color:white;
+}
+
+/* Buttons */
+
+button{
+ padding:12px 22px;
+ font-size:15px;
+ margin:10px;
+ background:#0d6efd;
+ color:white;
+ border:none;
+ border-radius:6px;
+ cursor:pointer;
+}
+
+button:hover{
+ background:#084298;
+}
+
+/* Table */
+
+table{
+ width:80%;
+ margin:20px auto;
+ border-collapse:collapse;
+ background:white;
+}
+
+th, td{
+ border:1px solid #ccc;
+ padding:10px;
+ text-align:center;
+}
+
+th{
+ background:#333;
+ color:white;
+}
+
+/* Result */
+
+.result{
+ font-size:20px;
+ margin-top:15px;
+ font-weight:bold;
+ color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>Student Attendance Management System</h1>
+<h2>Student Details</h2>
+
+<button id="displayBtn">Display Student Details</button>
+<button id="attendanceBtn">Calculate Average Attendance</button>
+
+<table id="studentTable">
+
+<tr>
+<th>Student ID</th>
+<th>Name</th>
+<th>Department</th>
+<th>Attendance (%)</th>
+</tr>
+
+</table>
+
+<div class="result" id="attendanceResult"></div>
+
+</div>
+
+<script>
+
+/* Student Objects Stored in Array */
+
+const students = [
+
+{ id:201, name:"Rahul", department:"Computer Science", attendance:85 },
+
+{ id:202, name:"Priya", department:"Information Technology", attendance:90 },
+
+{ id:203, name:"Arun", department:"Electronics", attendance:78 },
+
+{ id:204, name:"Meena", department:"Mechanical", attendance:88 }
+
+];
+
+/* Display Students */
+
+function displayStudents(){
+
+const table = document.getElementById("studentTable");
+
+if(table.rows.length > 1) return;
+
+students.forEach(student => {
+
+const row = table.insertRow();
+
+row.insertCell(0).innerHTML = student.id;
+row.insertCell(1).innerHTML = student.name;
+row.insertCell(2).innerHTML = student.department;
+row.insertCell(3).innerHTML = student.attendance + "%";
+
+});
+
+}
+
+/* Calculate Average Attendance */
+
+function calculateAttendance(){
+
+let total = 0;
+
+students.forEach(student => {
+
+total += student.attendance;
+
+});
+
+let average = total / students.length;
+
+document.getElementById("attendanceResult").innerHTML =
+"Average Attendance : " + average.toFixed(2) + "%";
+
+}
+
+/* Button Events */
+
+document.getElementById("displayBtn")
+.addEventListener("click", displayStudents);
+
+document.getElementById("attendanceBtn")
+.addEventListener("click", calculateAttendance);
+
+</script>
+
+</body>
+</html>
