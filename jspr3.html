@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Attendance Management System</title>
+
+<style>
+
+/* College Campus Background */
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1562774053-701939374585");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay for readability */
+
+.overlay{
+    height:100vh;
+    background: rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* Heading style */
+
+h1{
+    color:white;
+    margin-bottom:30px;
+}
+
+/* Interactive Box */
+
+#demo{
+    width:260px;
+    padding:25px;
+    background-color:lightgray;
+    text-align:center;
+    cursor:pointer;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+/* Message Text */
+
+#msg{
+    margin-top:20px;
+    color:white;
+    font-size:18px;
+}
+
+</style>
+
+<script>
+
+function mouseOver(){
+
+var element = document.getElementById("demo");
+
+element.style.color="white";
+element.style.backgroundColor="green";
+
+document.getElementById("msg").innerHTML=
+"Mouse Over Event Triggered";
+
+}
+
+function mouseOut(){
+
+var element = document.getElementById("demo");
+
+element.style.color="black";
+element.style.backgroundColor="lightgray";
+
+document.getElementById("msg").innerHTML=
+"Mouse Out Event Triggered";
+
+}
+
+function mouseClick(){
+
+document.getElementById("msg").innerHTML=
+"Mouse Click Event Triggered";
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>Student Attendance Management System</h1>
+
+<div id="demo"
+onmouseover="mouseOver()"
+onmouseout="mouseOut()"
+onclick="mouseClick()">
+
+Move Mouse Here
+
+</div>
+
+<p id="msg"></p>
+
+</div>
+
+</body>
+
+</html>
