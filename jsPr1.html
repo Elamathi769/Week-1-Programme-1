@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Attendance Management System</title>
+
+<style>
+
+/* Background Styling */
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1580582932707-520aed937b7b");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay to make text readable */
+.overlay{
+    background-color: rgba(0,0,0,0.6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form container */
+.form-box{
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 0px 10px black;
+}
+
+/* Heading */
+h1{
+    text-align: center;
+    color: darkblue;
+}
+
+h3{
+    text-align:center;
+    color: #444;
+}
+
+/* Input fields */
+input, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+/* Button style */
+button{
+    width:100%;
+    padding:10px;
+    background-color: darkblue;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+}
+
+button:hover{
+    background-color: green;
+    cursor:pointer;
+}
+
+</style>
+
+<script>
+
+function validateForm(){
+
+var fname = document.getElementById("fname").value;
+var lname = document.getElementById("lname").value;
+var password = document.getElementById("password").value;
+var email = document.getElementById("email").value;
+var mobile = document.getElementById("mobile").value;
+var address = document.getElementById("address").value;
+
+/* First Name Validation */
+var namePattern = /^[A-Za-z]{6,}$/;
+
+if(!namePattern.test(fname)){
+alert("First Name must contain alphabets and minimum 6 characters");
+return false;
+}
+
+/* Password Validation */
+if(password.length < 6){
+alert("Password must be at least 6 characters long");
+return false;
+}
+
+/* Email Validation */
+var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+if(!emailPattern.test(email)){
+alert("Enter valid Email ID (name@domain.com)");
+return false;
+}
+
+/* Mobile Validation */
+var mobilePattern = /^[0-9]{10}$/;
+
+if(!mobilePattern.test(mobile)){
+alert("Mobile number must contain exactly 10 digits");
+return false;
+}
+
+/* Last Name Validation */
+if(lname == ""){
+alert("Last Name should not be empty");
+return false;
+}
+
+/* Address Validation */
+if(address == ""){
+alert("Address should not be empty");
+return false;
+}
+
+alert("Student Registration Successful!");
+return true;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<div class="form-box">
+
+<h1>Student Attendance</h1>
+<h3>Registration Form</h3>
+
+<form onsubmit="return validateForm()">
+
+<label>First Name</label>
+<input type="text" id="fname">
+
+<label>Last Name</label>
+<input type="text" id="lname">
+
+<label>Password</label>
+<input type="password" id="password">
+
+<label>Email ID</label>
+<input type="text" id="email">
+
+<label>Mobile Number</label>
+<input type="text" id="mobile">
+
+<label>Address</label>
+<textarea id="address"></textarea>
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>
